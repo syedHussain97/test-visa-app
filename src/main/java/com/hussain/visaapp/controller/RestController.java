@@ -11,15 +11,15 @@ public class RestController {
     @Value("${project.url}")
     private String welcomeUrl;
 
-    private final RestTemplate restTemplate;
+    private final RestTemplate visaApiRestTemplate;
 
-    public RestController(@NotNull RestTemplate restTemplate) {
-        this.restTemplate = restTemplate;
+    public RestController(@NotNull RestTemplate visaApiRestTemplate) {
+        this.visaApiRestTemplate = visaApiRestTemplate;
     }
 
     @GetMapping("/welcomeclient")
     public String greetMessage() {
 
-        return restTemplate.getForObject(welcomeUrl, String.class);
+        return visaApiRestTemplate.getForObject(welcomeUrl, String.class);
     }
 }

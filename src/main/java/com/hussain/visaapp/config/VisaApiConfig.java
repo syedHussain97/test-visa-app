@@ -36,6 +36,17 @@ public class VisaApiConfig {
     @Value("${key.store.password}")
     private String keyStorePassword;
 
+    /**
+     *
+     * @param restTemplateBuilder
+     * @return RestTemplate create this template for all visa api calls
+     * @throws KeyManagementException
+     * @throws NoSuchAlgorithmException
+     * @throws KeyStoreException
+     * @throws CertificateException
+     * @throws IOException
+     * @throws UnrecoverableKeyException
+     */
     @Bean
     public RestTemplate visaApiRestTemplate(@NotNull final RestTemplateBuilder restTemplateBuilder)
             throws KeyManagementException, NoSuchAlgorithmException, KeyStoreException, CertificateException,
@@ -47,7 +58,9 @@ public class VisaApiConfig {
                 .loadTrustMaterial(new File(keyStore), keyStorePassword.toCharArray())
                 .build();
 
-        final SSLConnectionSocketFactory sslSocketFactory = new SSLConnectionSocketFactory(sslContext, new String[]{"TLSv1.2"}, null,
+        final SSLConnectionSocketFactory sslSocketFactory = new SSLConnectionSocketFactory(sslContext,
+                new String[]{"TLSv1.2"},
+                null,
                 SSLConnectionSocketFactory.getDefaultHostnameVerifier());
 
         final CloseableHttpClient httpClient = HttpClients.custom()

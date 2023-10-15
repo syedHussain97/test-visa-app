@@ -10,6 +10,9 @@ import org.springframework.http.client.ClientHttpResponse;
 
 import java.io.IOException;
 
+/**
+ * Creating this interceptor to add basic auth to the requests to visa api
+ */
 public class VisaRestCallInterceptor implements ClientHttpRequestInterceptor {
 
     @Value("${project.username}")
@@ -19,9 +22,9 @@ public class VisaRestCallInterceptor implements ClientHttpRequestInterceptor {
     private String projectPassword;
 
     @Override
-    public ClientHttpResponse intercept(@NotNull HttpRequest request,
-                                        byte @NotNull [] body,
-                                        @NotNull ClientHttpRequestExecution execution) throws IOException {
+    public @NotNull ClientHttpResponse intercept(@NotNull HttpRequest request,
+                                                 byte @NotNull [] body,
+                                                 @NotNull ClientHttpRequestExecution execution) throws IOException {
 
         final HttpHeaders headers = request.getHeaders();
         headers.setBasicAuth(projectUserName, projectPassword);
