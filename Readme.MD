@@ -1,6 +1,6 @@
 ## Visa App
 
-This is just a test api 
+This is just a test api to call ssl secured visa apis 
 
 ### Requirements
 - keystore path
@@ -10,3 +10,6 @@ This is just a test api
 
 ### Potential Improvements:
 - Add jwt authentication to secure the endpoint exposed  
+- Containerize the application 
+- Change the api Client from supplier to interface when increasing the number of endpoints invoked
+- Add feign client after above step if no business logic is involved

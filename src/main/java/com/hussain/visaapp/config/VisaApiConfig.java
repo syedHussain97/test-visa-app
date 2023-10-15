@@ -37,7 +37,6 @@ public class VisaApiConfig {
     private String keyStorePassword;
 
     /**
-     *
      * @param restTemplateBuilder
      * @return RestTemplate create this template for all visa api calls
      * @throws KeyManagementException
@@ -48,7 +47,8 @@ public class VisaApiConfig {
      * @throws UnrecoverableKeyException
      */
     @Bean
-    public RestTemplate visaApiRestTemplate(@NotNull final RestTemplateBuilder restTemplateBuilder)
+    public RestTemplate visaApiRestTemplate(@NotNull final RestTemplateBuilder restTemplateBuilder,
+                                            @NotNull final ClientHttpRequestInterceptor visaRestCallInterceptor)
             throws KeyManagementException, NoSuchAlgorithmException, KeyStoreException, CertificateException,
             IOException, UnrecoverableKeyException {
 
@@ -75,7 +75,7 @@ public class VisaApiConfig {
         if (!CollectionUtils.isEmpty(interceptors)) {
             Collections.copy(interceptorsToSet, interceptors);
         }
-        interceptorsToSet.add(new VisaRestCallInterceptor());
+        interceptorsToSet.add(visaRestCallInterceptor);
         restTemplate.setInterceptors(interceptorsToSet);
         return restTemplate;
     }
