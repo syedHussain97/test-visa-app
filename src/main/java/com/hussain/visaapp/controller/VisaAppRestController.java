@@ -6,14 +6,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.client.RestTemplate;
 
 @org.springframework.web.bind.annotation.RestController
-public class RestController {
+public class VisaAppRestController {
 
     @Value("${project.url}")
     private String welcomeUrl;
 
     private final RestTemplate visaApiRestTemplate;
 
-    public RestController(@NotNull RestTemplate visaApiRestTemplate) {
+    public VisaAppRestController(@NotNull RestTemplate visaApiRestTemplate) {
         this.visaApiRestTemplate = visaApiRestTemplate;
     }
 
