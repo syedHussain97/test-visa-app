@@ -9,7 +9,7 @@ import org.springframework.web.client.RestTemplate;
 public class VisaAppRestController {
 
     @Value("${project.url}")
-    private String welcomeUrl;
+    private String projectUrl;
 
     private final RestTemplate visaApiRestTemplate;
 
@@ -20,6 +20,6 @@ public class VisaAppRestController {
     @GetMapping("/welcomeclient")
     public String greetMessage() {
 
-        return visaApiRestTemplate.getForObject(welcomeUrl, String.class);
+        return visaApiRestTemplate.getForObject(projectUrl, String.class);
     }
 }
