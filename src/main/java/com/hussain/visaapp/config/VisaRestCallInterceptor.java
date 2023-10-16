@@ -29,6 +29,7 @@ public class VisaRestCallInterceptor implements ClientHttpRequestInterceptor {
                                                  @NotNull ClientHttpRequestExecution execution) throws IOException {
 
         final HttpHeaders headers = request.getHeaders();
+
         headers.setBasicAuth(projectUserName, projectPassword);
         return execution.execute(request, body);
     }
