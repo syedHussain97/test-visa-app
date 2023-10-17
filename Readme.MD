@@ -1,6 +1,10 @@
 ## Visa App
 
-This is just a test api to call ssl secured visa apis 
+This is just a test api to call ssl secured visa apis .
+Build the docker file as :
+
+    docker build -f Dockerfile  -t test-visa-app:latest .
+
 
 ### Requirements
 Properties:
