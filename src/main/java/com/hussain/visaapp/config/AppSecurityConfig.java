@@ -8,11 +8,11 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 public class AppSecurityConfig {
 
-    @Bean
-    SecurityFilterChain web(HttpSecurity http) throws Exception {
-        // Permit all the requests, no points are protected at this point
-        http.authorizeRequests().antMatchers("/*").permitAll();
+  @Bean
+  SecurityFilterChain web(HttpSecurity http) throws Exception {
+    // Permit all the requests, no points are protected at this point
+    http.authorizeRequests().antMatchers("/*").permitAll();
 
-        return http.build();
-    }
+    return http.build();
+  }
 }

@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class VisaAppApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(VisaAppApplication.class, args);
-	}
+  public static void main(String[] args) {
+    SpringApplication.run(VisaAppApplication.class, args);
+  }
 
 }

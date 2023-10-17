@@ -17,20 +17,19 @@ import java.io.IOException;
 @Component
 public class VisaRestCallInterceptor implements ClientHttpRequestInterceptor {
 
-    @Value("${project.username}")
-    private String projectUserName;
+  @Value("${project.username}")
+  private String projectUserName;
 
-    @Value("${project.password}")
-    private String projectPassword;
+  @Value("${project.password}")
+  private String projectPassword;
 
-    @Override
-    public @NotNull ClientHttpResponse intercept(@NotNull HttpRequest request,
-                                                 byte @NotNull [] body,
-                                                 @NotNull ClientHttpRequestExecution execution) throws IOException {
+  @Override
+  public @NotNull ClientHttpResponse intercept(@NotNull HttpRequest request,
+      byte @NotNull [] body,
+      @NotNull ClientHttpRequestExecution execution) throws IOException {
 
-        final HttpHeaders headers = request.getHeaders();
-
-        headers.setBasicAuth(projectUserName, projectPassword);
-        return execution.execute(request, body);
-    }
+    final HttpHeaders headers = request.getHeaders();
+    headers.setBasicAuth(projectUserName, projectPassword);
+    return execution.execute(request, body);
+  }
 }

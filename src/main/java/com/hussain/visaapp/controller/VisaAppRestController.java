@@ -8,15 +8,15 @@ import java.util.function.Supplier;
 @org.springframework.web.bind.annotation.RestController
 public class VisaAppRestController {
 
-    private final Supplier<String> visaApiClient;
+  private final Supplier<String> visaApiClient;
 
-    public VisaAppRestController(@NotNull Supplier<String> visaApiClient) {
-        this.visaApiClient = visaApiClient;
-    }
+  public VisaAppRestController(@NotNull Supplier<String> visaApiClient) {
+    this.visaApiClient = visaApiClient;
+  }
 
 
-    @GetMapping("/welcomeclient")
-    public String greetMessage() {
-        return visaApiClient.get();
-    }
+  @GetMapping("/welcomeclient")
+  public String greetMessage() {
+    return visaApiClient.get();
+  }
 }

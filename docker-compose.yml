@@ -1,0 +1,19 @@
+version: '2'
+
+services:
+  test-visa-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: test-visa-app:latest
+    container_name: test-visa-app
+    volumes:
+      - /etc/ssl:/etc/ssl
+    ports:
+      - "8090:8090"
+    environment:
+      key.store: ""
+      key.store.password: ""
+      project.username: ""
+      project.password: ""
+      project.url: ""
