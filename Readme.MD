@@ -23,6 +23,7 @@ Properties:
 - keystore password
 - visa application id 
 - visa application password
+- Keystore present /etc/ssl to be copied over
 
 Other Requirements:
 - Keystore having the certificates(RootCert, Product cert, private keys) which is referenced in the docker-compose.yml file
@@ -31,3 +32,4 @@ Other Requirements:
 - Add jwt authentication to secure the endpoint exposed  
 - Change the api Client from supplier to interface when increasing the number of endpoints invoked
 - Add feign client after above step if no business logic is involved
+- Add Shell scripts to generate the keystore having the certs rather than mounting them in docker-compose file
