@@ -1,10 +1,21 @@
 ## Visa App
 
 This is just a test api to call ssl secured visa apis .
+
+### Steps:
+To create the keystore: go to https://developer.visa.com/pages/working-with-visa-apis/two-way-ssl
+
+First build the project with the following mvn command: 
+
+    mvn clean install
+
 Build the docker file as :
 
     docker build -f Dockerfile  -t test-visa-app:latest .
 
+Run docker compose to start the server 
+
+    docker-compose -f docker-compose.yml up 
 
 ### Requirements
 Properties:
