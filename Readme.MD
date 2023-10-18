@@ -32,4 +32,5 @@ Other Requirements:
 - Add jwt authentication to secure the endpoint exposed  
 - Change the api Client from supplier to interface when increasing the number of endpoints invoked
 - Add feign client after above step if no business logic is involved
-- Add Shell scripts to generate the keystore having the certs rather than mounting them in docker-compose file
+- Add Shell scripts to generate the keystore having the certs rather than mounting them in docker-compose file. The script would be called by dockerfile
+  and values(username/password) can be passed in by the pipeline used to build/deploy
